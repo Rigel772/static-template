@@ -1,0 +1,52 @@
+// COLOR VARIABLES
+
+\:root 
+    --color-text: #{#333333}
+
+
+
+//FONT VARIABLES
+
+$font-primary: "Lato", sans-serif
+// $font-secondary:
+
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em;   // 1200px
+$bp-large: 62.5em;   // 1000px
+$bp-medium: 50em;    // 800px;
+$bp-small: 37.5em;    // 600px;
+
+
+
+*,
+*::after,
+*::before
+    margin: 0
+    padding: 0
+    box-sizing: inherit
+html
+    box-sizing: border-box
+    font-size: 62.5% // 10px/16px = 62.5% -> 1rem = 10px
+
+    @media only screen and (max-width: $bp-largest) 
+        font-size: 50%;
+
+body
+    font-family: $font-primary
+    font-weight: 400
+    color: var(--color-text)
+    line-height: 1.7
+    
+
+// <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+
+@import "base"
+@import "layout"
+@import "abstracts/animations"
+@import "abstracts/functions"
+@import "abstracts/mixins"
+@import "components/footer"
+@import "components/header"
+@import "pages/home"

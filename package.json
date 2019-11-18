@@ -1,0 +1,30 @@
+{
+  "name": "static_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css-build": "node-sass src/sass/main.sass dist/css/style.css ",
+    "css-build-map": "node-sass src/sass/main.sass src/css/style.css -w --source-map-root file://${PWD}/ --source-map-embed true",
+    "js-build": "babel src/_js --out-dir src/js",
+    "js-deploy": "babel src/_js --out-dir dist/js",
+    "css-postcss": "postcss --use autoprefixer --output src/css/style.css dist/css/style.css",
+    "css-watch": "npm run css-build-map -- --watch",
+    "js-watch": "npm run js-build -- --watch",
+    "css-deploy": "npm run css-build && npm run css-postcss",
+    "deploy": "npm run css-deploy && npm run js-deploy",
+    "start": "npm-run-all --parallel css-watch js-watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.7.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015-ie": "^6.7.0",
+    "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.3"
+  }
+}
